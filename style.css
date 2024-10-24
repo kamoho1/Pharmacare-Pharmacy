@@ -1,0 +1,725 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Main CSS =====*/
+:root{
+   /*====Main colors===*/
+   --first-clor: blue;
+   --second-color: #5d9afc;
+   --third-color: #000;
+
+  /*====Other colors===*/
+  --body-bg-color:#161f33;
+  --hover-red-color: red;
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: "Poppins", sans-serif;
+
+}
+
+body{
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--body-bg-color);
+}
+
+.main-section{
+ position: relative;
+ width: 100%;
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center; 
+ z-index: 2;
+}
+
+.main-section .logo{
+z-index: 999;
+position: absolute;
+top: 50px;
+left: 100px;
+color: var(--first-clor);
+font-size: 1.8em;
+font-weight: 600;
+text-decoration: none;
+}
+
+/*====slider CSS======*/
+.slider{
+position: relative;
+width: 100%;
+height: 100vh;
+overflow: hidden;
+}
+
+/*.slider:before {
+  content: "";
+  z-index: 777;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background:linear-gradient(to top, white, transparent);
+}*/
+
+.slider .slide{
+ position: absolute;
+ width: 100%;
+ height: 100vh; 
+ /*opacity: 0;*/
+ 
+ }
+
+/*.slider .slide.active{
+  opacity: 1;
+}*/
+/*==== slide images=====*/
+.slide .slide-image{
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;  
+}
+
+.slide .slide-bg-img{
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100vh;
+ object-fit: cover;
+ background-position: center;
+background-size: cover;
+pointer-events: none;
+user-select: none;
+opacity: 0;
+}
+
+
+.slide.active .slide-bg-img{
+  opacity: 1;
+}
+
+.slide .Medication-name{
+  position:absolute;
+  top: 105px;
+  color:var(--first-clor);
+  font-size: 5.5vw;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+  white-space: nowrap;
+  text-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+}
+
+.slide.active .Medication-name{
+ opacity: 1; 
+}
+
+.slide .slide-medication-img{
+  position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 50vh;
+ object-fit: contain;
+ background-position: center;
+ background-size: cover;
+ pointer-events: none;
+ user-select: none;
+transform: scale(1) translateY(190px);
+opacity: 0;
+transform: opacity 1s linear;
+}
+
+.slide.active .slide-medication-img{
+ opacity: 1; 
+ transform:opacity 1.5s linear;
+
+}
+
+/*@keyframes logo-bg{
+  0%{
+    transform: scale(0.5);
+  }
+  50%{
+transform: scale(1);
+  }
+  100%{
+    transform: scale(1);
+  }
+};*/
+
+/*=====slide text contents=====*/
+.slide-text-content{
+z-index: 777;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.slide.active .slide-text-content{
+  z-index: 888;
+}
+
+.slide .slide-caption{
+position: absolute;
+top: 90px;
+color: green;
+font-size: 1.15em;
+font-weight: 400;
+text-transform: uppercase;
+letter-spacing: 5px;
+text-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+transform: scale(.8);
+opacity: 0;
+}
+
+.slide.active .slide-caption{
+  transform: scale(1);
+opacity: 1;
+}
+
+.slide-paragraph{
+ position: absolute;
+ bottom: 20px;
+ max-width: 550px;
+ color: red;
+ font-size: 1em;
+ line-height: 32px; 
+ text-align: center;
+ text-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+ transform: scale(.8);
+ opacity: 0;
+}
+
+
+.slide.active .slide-paragraph{
+  transform: scale(1);
+  opacity: 1;
+}
+
+.read-more{
+ color:purple;
+ font-size: .85em;
+ font-weight: 600;
+ text-decoration: none;
+ white-space: nowrap; 
+ transition: color .3s ease;
+}
+
+.read-more:hover{
+color: var(--second-color);
+} 
+
+/*======= Social media links====*/
+.slider-media-icons{
+  z-index:888;
+  position: absolute;
+  left: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 35px;
+
+}
+
+.slider-media-icons .media-links{
+ color: var(--first-clor);
+ font-size: 1.5em;
+ text-decoration: none;
+ opacity: .9; 
+ transition: .3s ease;
+}
+.slider-media-icons .media-links:hover{
+  color: var(--second-color);
+}
+
+/*====== Slider left/ right arrow navigation==*/
+.slider-navigation{
+  z-index: 888;
+  position: absolute;
+  bottom: 65px;
+  right: 100px;
+  display: flex;
+  gap: 70px;
+}
+
+.slider-navigation .prev-btn, 
+.slider-navigation .next-btn {
+  color: var(--first-clor);
+font-size: 1.1em;
+font-weight: 300;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+user-select: none;
+transition: .3s ease;
+}
+
+.slider-navigation i{
+  font-size: 2.5em;
+}
+
+.slider-navigation .prev-btn:hover, 
+.slider-navigation .next-btn:hover{
+ color: var(--second-color); 
+}
+
+/*Slider pagination buttons for each slide*/
+.pagination{
+  z-index: 888;
+  position: absolute;
+  right: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pagination .slide-btn{
+ width: 9px;
+ height: 25px;
+ background:lightgrey ;
+ box-shadow: 0 5px 25px darkgray; 
+ cursor: pointer;
+ transition: .3s ease;
+}
+
+.pagination .slide-btn.active{
+  background: var(--second-color);
+}
+
+.pagination .slide-btn:hover{
+  background: orange;
+}
+
+.slide-indicator-bars{
+ z-index: 888; 
+ position: absolute;
+ width: 100%;
+ bottom: 0;
+ left: 0;
+}
+
+.slide-indicator-bars .slide-indicator-bar{
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--second-color);
+}
+
+.slide-indicator-bars .slide-indicator-bar.active{
+  width: 100%;
+  transition: width 8.2s linear;
+}
+
+.footer-name{
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  padding: 10px;
+  font-size: 25px;
+}
+
+.footer-copyright{
+  color: white;
+  text-align: center;
+  padding-bottom: 3px;
+}
+
+/*==== Media queries (max-width: 900px)====*/
+@media screen and (max-wdth: 900px) {
+  .slide .Medication-name{
+    font-size: 5.5vw;
+    
+  }
+  .slide .slide-medication-img{
+  transform: scale(1.25) translateY(190px);
+
+  }
+  .slide-paragraph{
+    bottom: 180px;
+    margin: 0 100px;
+
+   } 
+
+   .slider-navigation{
+    z-index: 888;
+    position: absolute;
+    bottom: 65px;
+    justify-content: center;
+    gap: 60px;
+  }
+
+}
+
+/*==== Media queries (max-width: 850px)====*/
+@media screen and (max-wdth: 850px) {
+  .main-section .logo{
+    top: 30px;
+    left: 50px;
+    }
+
+    .slider-media-icons{
+      left: 50px;
+    }
+
+    .slider-navigation{
+      right: 50px;
+    }
+
+    .pagination{
+      right: 50px;
+     
+    }
+
+    .slide-caption{
+      font-size: 1.1em;
+      }
+      .slide-caption{
+        display: none;
+        }
+}
+/*====== Navigation bar===*/
+.nav{
+  height: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+ position: relative;
+  overflow: visible;
+ top: 0;
+background-color: aliceblue;
+z-index: 999;
+padding: 15px;
+
+}
+
+.pharm-logo{
+  color: green;
+  font-weight: 900;
+}
+
+
+.nav-menu ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu ul li {
+  list-style: none;
+ 
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  padding: 16px;
+  color: green;
+  display: block;
+}
+
+.nav-menu li:hover {
+  background-color: peachpuff;
+}
+
+.pharm-logo{
+  font-size: 27px;
+}
+
+
+
+
+/*responsiveNavBar*/
+#responsiveMenuToggleButton{
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#responsiveMenuToggleButton svg{
+  height: 1.5rem;
+  width: 1.5rem;
+  color: green;
+  position: relative;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+#responsiveMenuToggleButton .openIcon{
+  display: block;
+}
+
+#responsiveMenuToggleButton .closeIcon{
+  display: none;
+}
+
+#responsiveMenuToggleButton.open .openIcon{
+ display: none; 
+}
+
+#responsiveMenuToggleButton.open .closeIcon{
+ display: block; 
+}
+
+@media screen and (max-width: 600px) {
+  #responsiveMenuToggleButton{
+    display: block;
+  }
+ .nav-menu{
+  flex-direction: column;
+  align-items: flex-start;
+ }
+
+  .nav-menu ul{
+    display: none;
+  }
+
+  .nav-menu ul.open{
+    display: block;
+  }
+
+  .nav-menu ul{
+    width: 100%;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: aliceblue;
+  }
+
+}
+
+
+
+
+
+
+  /*.nav-menu ul {
+    position: fixed;
+    top: 80px;
+    right: 30%;
+    background-color:whitesmoke;
+    width: 50%;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+  }
+
+  .nav-menu ul li {
+    margin: 20px 0;
+  }
+
+  .nav-menu ul li a {
+    font-size: 20px;
+  }
+
+  #check:checked ~ ul {
+    right: 0;
+  }
+}*/
+
+/*==== Media queries (max-width: 580px)====*/
+@media screen and (max-wdth: 580px) {
+  .main-section .logo{
+    left: 25px;
+    font-size: 1.6em;
+    }
+
+    .slide .Medication-name{
+      font-size: 12vw;
+    }
+
+    .slide .slide-medication-img{
+    transform: scale(1.5) translateY(25px);
+    }
+    .slider-media-icons{
+      left: 25px;
+    }
+
+    .slider-media-icons .media-links{
+      font-size: 1.45em;
+     }
+
+     
+   .slider-navigation{
+    bottom: 40px;
+  }
+
+  .slider-navigation .prev-btn, 
+  .slider-navigation .next-btn {
+  font-size: 1em;
+  }
+
+  .pagination{
+    right: 25px;
+  }
+}
+
+/*==== Media queries (max-width: 400px)====*/
+@media screen and (max-wdth: 400px) {
+  .slide .slide-caption{
+    font-size: 1.05em;
+    }
+    .slider-navigation{
+      right: 0;
+      width: 100%;
+      right: 100px;
+      gap: 50px;
+      align-items: center;
+    }
+
+}
+
+/*=== Display of medication===*/
+
+.section-one{
+  background-color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+flex-direction: column;
+
+  
+}
+
+.container{
+  height: 414px;
+  width: 368px;
+ background-color: rgb(20, 21, 90);
+ bottom: 2px solid white;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ border-radius: 15px;
+ box-shadow: rgba(41,40,0.2);
+ gap: 30px;
+ transition: transform 0.2s ease-in-out;
+
+} 
+
+.container-box{
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  flex: 1;
+}
+
+.container:hover{
+  transform: scale(1.1);
+}
+
+.cardutility{
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.des{
+  text-align: center;
+  padding: 5px;
+  margin: 1px;
+  border-radius: 10px;
+  text-justify: auto;
+}
+
+.spaceicon{
+  gap: 10px;
+}
+
+#btnid{
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+
+.imgInThisSection{
+  width: 340px;
+  height: 230px;
+  border-radius: 10px;
+  border: 5px solid white;
+
+}
+
+.Medication-title{
+  font-size: 25px;
+}
+
+.Read-more{
+  margin-left: 2px 0 0 70px;
+  background-color: aliceblue;
+}
+
+.link-a{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+@media screen and (max-with: 768px){
+
+  .section-one{
+    background-color: rgb(99, 176, 201);
+ 
+  }
+
+  .container{
+    height: 300px;
+    width: 300px;
+   border-radius: 5px;
+   gap: 10px;
+   flex-direction: column;
+ 
+  } 
+
+  .container-box{
+flex-direction: column;
+  }
+
+  
+.imgInThisSection{
+    width: 240px;
+    height: 130px;
+    border-radius: 10px;
+    border: 5px solid white;
+    margin-left: 25px;
+}
+
+.Medication-title{
+  font-size: 10px;
+}
+
+
+} 
